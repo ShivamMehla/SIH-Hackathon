@@ -1,0 +1,279 @@
+/* --- Global Resets & Theme Settings --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --bg-color: #b7cde2;
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Header / Navigation --- */
+.navbar {
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.user-status {
+    font-size: 0.875rem;
+    background-color: #334155;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+}
+
+/* --- Main Layout Frames --- */
+.main-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.frame-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.frame-card h2 {
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.frame-card p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Form Styles --- */
+.input-group {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus, 
+.input-group select:focus, 
+.input-group textarea:focus {
+    border-color: var(--primary-color);
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.margin-top {
+    margin-top: 1.5rem;
+}
+
+/* --- Company Cards Grid --- */
+.company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.company-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.2rem;
+    background-color: #fafafa;
+}
+
+.company-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.company-card .role-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.company-card .requirements {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* --- Advanced Resume Layout --- */
+.resume-workspace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 850px) {
+    .resume-workspace {
+        grid-template-columns: 1fr;
+    }
+}
+
+.resume-paper {
+    background: #ffffff;
+    border: 2px solid #334155;
+    padding: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.resume-header {
+    text-align: center;
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.resume-header h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.resume-contact {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.resume-body section {
+    margin-bottom: 1rem;
+}
+
+.resume-body h4 {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 0.4rem;
+    color: var(--primary-color);
+}
+
+.resume-body p {
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
+
+.skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.badge {
+    background-color: #e0e7ff;
+    color: #3730a3;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* --- Auto Apply Status --- */
+.progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background-color: var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: var(--success-color);
+    transition: width 0.4s ease;
+}
+
+.status-log {
+    background-color: #0f172a;
+    color: #38bdf8;
+    padding: 1rem;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.text-center { text-align: center; }
+.text-success { color: var(--success-color); }
