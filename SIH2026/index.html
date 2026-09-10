@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia-Industry Bridge Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">EduBridge <span>Portal</span></div>
+        <div class="user-status" id="userStatus">Status: Not Logged In</div>
+    </header>
+
+    <!-- Main Dynamic Application Container -->
+    <main class="main-container">
+
+        <!-- STEP 1: Login Frame -->
+        <section id="login-section" class="frame-card">
+            <h2>Portal Authentication</h2>
+            <p>Select your portal access type to proceed.</p>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Academic / Corporate Email</label>
+                    <input type="email" id="email" placeholder="student@university.edu" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <div class="input-group">
+                    <label for="role">User Role</label>
+                    <select id="role">
+                        <option value="student">Student / Candidate</option>
+                        <option value="academic">Academic Faculty</option>
+                        <option value="industry">Industry Recruiter</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Login to Portal</button>
+            </form>
+        </section>
+
+        <!-- STEP 2: Skill Mapping & Qualifications Input -->
+        <section id="profile-setup-section" class="frame-card hidden">
+            <h2>Step 1: Candidate Skill Mapping</h2>
+            <p>Input your academic credentials, technical skills, and achievements.</p>
+            <form id="profileForm">
+                <div class="input-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" placeholder="John Doe" required>
+                </div>
+                <div class="input-group">
+                    <label for="qualification">Highest Qualification & Major</label>
+                    <input type="text" id="qualification" placeholder="B.Tech in Computer Science" required>
+                </div>
+                <div class="input-group">
+                    <label for="cgpa">CGPA / Percentage</label>
+                    <input type="text" id="cgpa" placeholder="8.9 / 10" required>
+                </div>
+                <div class="input-group">
+                    <label for="skills">Technical & Soft Skills (Comma separated)</label>
+                    <input type="text" id="skills" placeholder="Python, Data Analysis, SQL, React, Communication" required>
+                </div>
+                <div class="input-group">
+                    <label for="achievements">Key Achievements & Certifications</label>
+                    <textarea id="achievements" rows="3" placeholder="1. AWS Certified Developer&#10;2. Winner of University Hackathon 2023"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Profile & Find Matches</button>
+            </form>
+        </section>
+
+        <!-- STEP 3: Company Requirements & Matching -->
+        <section id="company-matches-section" class="frame-card hidden">
+            <h2>Step 2: Matched Industry Opportunities</h2>
+            <p>Based on your skills, these companies match your profile requirements:</p>
+            
+            <div id="company-list" class="company-grid">
+                <!-- Dynamically Inserted Companies -->
+            </div>
+
+            <button id="proceedToResumeBtn" class="btn btn-success margin-top">Proceed to Build Advanced Resume</button>
+        </section>
+
+        <!-- STEP 4: Advanced Resume Builder & Preview -->
+        <section id="resume-builder-section" class="frame-card hidden">
+            <h2>Step 3: Advanced Resume Generation</h2>
+            <p>Provide contact and experience details to auto-generate your standardized industry resume.</p>
+            
+            <div class="resume-workspace">
+                <!-- Resume Details Form -->
+                <form id="resumeDetailsForm" class="resume-form">
+                    <h3>Additional Information</h3>
+                    <div class="input-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="+1 234 567 890" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="linkedin">LinkedIn Profile URL</label>
+                        <input type="url" id="linkedin" placeholder="https://linkedin.com/in/username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="experience">Internships / Experience</label>
+                        <textarea id="experience" rows="3" placeholder="Software Engineering Intern at TechCorp (3 Months)"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="projects">Key Projects</label>
+                        <textarea id="projects" rows="3" placeholder="AI Powered Resume Parser using Python and NLP"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Generate Advanced Resume</button>
+                </form>
+
+                <!-- Advanced Live Resume Display -->
+                <div class="resume-preview-container">
+                    <h3>Live Generated Resume</h3>
+                    <div id="advanced-resume" class="resume-paper">
+                        <header class="resume-header">
+                            <h1 id="res-name">JOHN DOE</h1>
+                            <p id="res-qual">B.Tech Computer Science | CGPA: 8.9</p>
+                            <div class="resume-contact">
+                                <span id="res-email">email@domain.com</span> | 
+                                <span id="res-phone">+123456789</span> | 
+                                <span id="res-link">LinkedIn</span>
+                            </div>
+                        </header>
+
+                        <div class="resume-body">
+                            <section>
+                                <h4>Skills & Competencies</h4>
+                                <div id="res-skills" class="skill-badges"></div>
+                            </section>
+
+                            <section>
+                                <h4>Experience & Internships</h4>
+                                <p id="res-experience">No experience details added yet.</p>
+                            </section>
+
+                            <section>
+                                <h4>Key Projects</h4>
+                                <p id="res-projects">No project details added yet.</p>
+                            </section>
+
+                            <section>
+                                <h4>Achievements & Certifications</h4>
+                                <p id="res-achievements">No achievements added yet.</p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="autoApplyBtn" class="btn btn-danger margin-top hidden">Auto-Apply To All Matched Companies</button>
+        </section>
+
+        <!-- STEP 5: Auto-Apply Status Engine -->
+        <section id="auto-apply-section" class="frame-card hidden">
+            <h2>Step 4: Automated Application Dispatch</h2>
+            <p>Our automation engine is submitting your Advanced Resume to all matched industry partners...</p>
+            
+            <div class="progress-bar-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+
+            <div id="application-status-log" class="status-log">
+                <!-- Auto-apply logs injected here -->
+            </div>
+
+            <div id="final-success-message" class="hidden text-center">
+                <h3 class="text-success">🎉 All Applications Sent Successfully!</h3>
+                <p>Industry recruiters have received your application. Check your dashboard for interview schedules.</p>
+                <button onclick="location.reload()" class="btn btn-primary margin-top">Return to Home</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
